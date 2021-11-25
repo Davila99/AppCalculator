@@ -10,21 +10,33 @@ export default function App() {
   
   return (
     <NavigationContainer>
+      <View style={styles.containerFondo}>
       <View style={styles.container}>
+        <Text style={styles.text}>App Nica</Text>
+      </View>
         {/* <ListPersons/> */}
         {/* <Calculator/> */}
         <Edad/>
-        <StatusBar style="auto" />
+
       </View>
     </NavigationContainer>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginTop:30,
+    paddingVertical:40
   },
-});
+  text:{
+   fontSize:40,
+   fontWeight:'normal',
+   color:'#ffffff'
+  },
+  containerFondo:{
+    backgroundColor:'#157810',
+    flex:1,
+    alignItems:'center'
+  }
+
+})
+

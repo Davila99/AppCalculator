@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { StyleSheet, Text, TextInput, View, Button } from 'react-native'
 
 const Edad = () => {
@@ -8,33 +8,35 @@ const Edad = () => {
     const [edad, setEdad] = useState<string>('')
 
     const [result, setResult] = useState<number>(0)
-    
+
     const CalcularEdad = () => {
         const YearsNow = 2021
         const edadusuario = YearsNow - parseInt(edad);
         setResult(edadusuario)
     }
+    useEffect(CalcularEdad, [edad])
 
     return (
-        <View>
-            <Text>Hola</Text>
+        <View style={styles.container}>
+            <Text style={styles.text}>Hola</Text>
             <TextInput
                 style={styles.inputs}
                 placeholder='Nombre'
                 onChangeText={setNombre}
             />
-            <Text>Ingresa la edad</Text>
+            <Text style={styles.text}>Ingresa la edad</Text>
             <TextInput
                 style={styles.inputs}
                 placeholder='Fecha nacimiento'
                 keyboardType='numeric'
                 onChangeText={setEdad}
             />
-            <Button
+            
+            {/* <Button
                 title="Calcular edad"
                 onPress={CalcularEdad}
-            />
-            <Text>{nombre} tu edad es de{result}</Text>
+            /> */}
+            <Text style={styles.text}>{nombre} Tu edad es de: {result}</Text>
         </View>
     )
 }
@@ -43,7 +45,7 @@ export default Edad
 
 const styles = StyleSheet.create({
     inputs: {
-        backgroundColor: '#F2F8FB',
+        backgroundColor: '#1d2329',
         borderRadius: 8,
         padding: 10,
         textAlign: 'right',
@@ -53,7 +55,22 @@ const styles = StyleSheet.create({
 
     },
     text: {
+        height: '30px',
         fontSize: 20,
-        color: 'blue'
-    }
+        color: 'black',
+        fontWeight: "bold",
+        textAlign: 'left',
+    },
+    container: {
+        borderTopRightRadius: 20,
+        borderTopLeftRadius: 20,
+        backgroundColor: '#6ca0ab',
+        flex: 1,
+        width: '100%',
+        paddingTop: 24,
+        paddingLeft: 24,
+        paddingRight: 24
+
+    },
+
 })
