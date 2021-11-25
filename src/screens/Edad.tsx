@@ -1,76 +1,77 @@
-import React, { useState, useEffect } from 'react'
-import { StyleSheet, Text, TextInput, View, Button } from 'react-native'
+import React, { useState, useEffect } from "react";
+
+import { StyleSheet, Text, TextInput, View, Button } from "react-native";
 
 const Edad = () => {
+    const [nombre, setNombre] = useState<string>("");
 
-    const [nombre, setNombre] = useState<string>('')
+    const [edad, setEdad] = useState<string>("2000");
 
-    const [edad, setEdad] = useState<string>('')
-
-    const [result, setResult] = useState<number>(0)
+    const [result, setResult] = useState<number>(0);
 
     const CalcularEdad = () => {
-        const YearsNow = 2021
+        const YearsNow = 2021;
         const edadusuario = YearsNow - parseInt(edad);
-        setResult(edadusuario)
-    }
-    useEffect(CalcularEdad, [edad])
+        setResult(edadusuario);
+    };
+    useEffect(CalcularEdad, [edad]);
 
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Hola</Text>
+            <Text style={styles.text}>Ingrese su Nombre</Text>
             <TextInput
                 style={styles.inputs}
-                placeholder='Nombre'
+                placeholder="Nombre"
                 onChangeText={setNombre}
             />
             <Text style={styles.text}>Ingresa la edad</Text>
             <TextInput
                 style={styles.inputs}
-                placeholder='Fecha nacimiento'
-                keyboardType='numeric'
+                placeholder="Fecha nacimiento"
+                defaultValue={edad}
+                keyboardType="numeric"
                 onChangeText={setEdad}
             />
-            
+
             {/* <Button
                 title="Calcular edad"
                 onPress={CalcularEdad}
             /> */}
-            <Text style={styles.text}>{nombre} Tu edad es de: {result}</Text>
+            <Text style={styles.text}>
+                {nombre} Tu edad es de: {result.toString()}
+            </Text>
         </View>
-    )
-}
+    );
+};
 
-export default Edad
+export default Edad;
 
 const styles = StyleSheet.create({
     inputs: {
-        backgroundColor: '#1d2329',
+        backgroundColor: "#1d2329",
         borderRadius: 8,
         padding: 10,
-        textAlign: 'right',
+        textAlign: "right",
         fontSize: 22,
-        fontWeight: 'bold',
-        color: '#004445'
-
+        fontWeight: "bold",
+        color: "#004445",
+        marginTop: "10px",
     },
     text: {
-        height: '30px',
+        height: "30px",
         fontSize: 20,
-        color: 'black',
+        color: "black",
         fontWeight: "bold",
-        textAlign: 'left',
+        textAlign: "left",
     },
     container: {
         borderTopRightRadius: 20,
         borderTopLeftRadius: 20,
-        backgroundColor: '#6ca0ab',
+        backgroundColor: "#6ca0ab",
         flex: 1,
-        width: '100%',
+        width: "100%",
         paddingTop: 24,
         paddingLeft: 24,
-        paddingRight: 24
-
+        paddingRight: 24,
     },
-
-})
+});
