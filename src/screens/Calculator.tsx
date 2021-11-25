@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react'
 
-import { StyleSheet, Text, TextInput, View, Picker, Button } from 'react-native'
+import { StyleSheet, Text, View, Picker, Button } from 'react-native'
 import FormInputs from '../components/FormInputs'
 
 
@@ -35,10 +35,10 @@ const Calculator = () => {
        
     }
     
-    useEffect(Calculardatos, [num1, num2]);
+    // useEffect(Calculardatos, [num1, num2]);
 
     return (
-        <View>
+        <View style={styles.container}>
             <FormInputs
             title="el nombre"
             defaultValue={nombre}
@@ -50,7 +50,7 @@ const Calculator = () => {
             onChangeText={setNum1}
             />
 
-            <Picker
+           {/* <Picker
                 selectedValue={selectedValue}
                 style={{ height: '50px', backgroundColor: '#FFFFFF' }}
                 onValueChange={(itemValue) => setSelectedValue(itemValue)}
@@ -59,15 +59,19 @@ const Calculator = () => {
                 <Picker.Item label="+" value="sumar" />
                 <Picker.Item label="-" value="restar" />
                 <Picker.Item label="/" value="dividir" />
-            </Picker>
+            </Picker> */}
+         
             <FormInputs
             title="el segundo numero"
             defaultValue={num2}
             onChangeText={setNum2}
             />
+            
             <Button title="Calcular"
                 onPress={Calculardatos}
-            />
+
+            />         
+
 
             <Text style={styles.text}>{nombre} el resultado es {result.toFixed(2)}</Text>
         </View>
@@ -88,9 +92,21 @@ const styles = StyleSheet.create({
 
     },
     text:{
-        
         fontSize:20,
         color: 'blue'
         
+    },
+    container: {
+        borderTopRightRadius: 20,
+        borderTopLeftRadius: 20,
+        backgroundColor: "#6ca0ab",
+        flex: 1,
+        width: "100%",
+        paddingTop: 24,
+        paddingLeft: 24,
+        paddingRight: 24,
+    },
+    button: {
+        color: 'white'
     }
 })

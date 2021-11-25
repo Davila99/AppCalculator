@@ -10,7 +10,7 @@ interface Props{
 const FormInputs = ({title, defaultValue,onChangeText}:Props) => {
     return (
         <View>
-            <Text>Ingrese {title}</Text>
+            <Text style={styles.text}>Ingrese {title}</Text>
             <TextInput
                 style={styles.inputs}
                 defaultValue={defaultValue}
@@ -26,11 +26,14 @@ const styles = StyleSheet.create({
     inputs: {
         backgroundColor: '#F2F8FB',
         borderRadius: 8,
-        padding: 10,
+        padding: 17,
         textAlign: 'right',
         fontSize: 22,
-        fontWeight: 'bold',
-        color: '#004445'
+        color: '#004445',
+        width:'100%'
 
+    },
+    text: {
+        fontSize: 20,
     }
 })

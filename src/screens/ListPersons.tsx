@@ -101,11 +101,9 @@ const styles = StyleSheet.create({
         padding: 10,
         textAlign: 'right',
         fontSize: 22,
-        fontWeight: 'bold',
         color: '#004445'
     },
     text: {
         fontSize:20,
-        bold: 'black'
     }
 })

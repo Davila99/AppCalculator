@@ -15,8 +15,8 @@ export default function App() {
         <Text style={styles.text}>App Nica</Text>
       </View>
         {/* <ListPersons/> */}
-        {/* <Calculator/> */}
-        <Edad/>
+        <Calculator/>
+        {/* <Edad/> */}
 
       </View>
     </NavigationContainer>
@@ -24,16 +24,16 @@ export default function App() {
 }
 const styles = StyleSheet.create({
   container: {
-    marginTop:30,
+    marginTop:27,
     paddingVertical:40
   },
   text:{
    fontSize:40,
    fontWeight:'normal',
-   color:'#ffffff'
+   color:'#034C50'
   },
   containerFondo:{
-    backgroundColor:'#157810',
+    backgroundColor:'#C0E3E6',
     flex:1,
     alignItems:'center'
   }
